@@ -7,6 +7,7 @@ GRID_SIZE = 20
 GRID_WIDTH = SCREEN_WIDTH // GRID_SIZE
 GRID_HEIGHT = SCREEN_HEIGHT // GRID_SIZE
 
+# Направления движения:
 UP = (0, -1)
 DOWN = (0, 1)
 LEFT = (-1, 0)
@@ -41,10 +42,17 @@ class GameObject:
     """Базовый класс для всех игровых объектов."""
 
     def __init__(self, body_color=None):
-        self.position = ((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))
+        """
+        Инициализирует игровой объект.
+
+        Args:
+            body_color: Цвет объекта
+        """
+        self.position = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
         self.body_color = body_color
 
     def draw(self):
+        """Отрисовывает объект на экране."""
         pass
 
 
@@ -79,6 +87,12 @@ class Snake(GameObject):
     """Класс для змейки, управляемой игроком."""
 
     def __init__(self, body_color=SNAKE_COLOR):
+        """
+        Инициализирует змейку.
+
+        Args:
+            body_color: Цвет змейки
+        """
         super().__init__(body_color)
         self.reset()
 
@@ -177,4 +191,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
