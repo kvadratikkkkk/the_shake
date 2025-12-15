@@ -128,6 +128,7 @@ class Snake(GameObject):
             last_rect = pygame.Rect(self.last, (GRID_SIZE, GRID_SIZE))
             pygame.draw.rect(screen, BOARD_BACKGROUND_COLOR, last_rect)
 
+
 def handle_keys(game_object):
     """Обрабатывает нажатия клавиш для изменения направления движения."""
     for event in pygame.event.get():
@@ -143,6 +144,7 @@ def handle_keys(game_object):
                 game_object.next_direction = LEFT
             elif event.key == pygame.K_RIGHT and game_object.direction != LEFT:
                 game_object.next_direction = RIGHT
+
 
 def main():
     """Основная функция игры, содержащая главный игровой цикл."""
@@ -170,6 +172,7 @@ def main():
         apple.draw()
 
         pygame.display.update()
+
 
 if __name__ == '__main__':
     main()
