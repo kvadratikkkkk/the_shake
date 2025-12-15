@@ -1,5 +1,6 @@
 from random import randint
 import pygame
+
 SCREEN_WIDTH, SCREEN_HEIGHT = 640, 480
 GRID_SIZE = 20
 GRID_WIDTH = SCREEN_WIDTH // GRID_SIZE
@@ -39,17 +40,10 @@ class GameObject:
     """Базовый класс для всех игровых объектов."""
 
     def __init__(self, body_color=None):
-        """
-        Инициализирует игровой объект.
-
-        Args:
-            body_color: Цвет объекта
-        """
         self.position = ((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))
         self.body_color = body_color
 
     def draw(self):
-        """Отрисовывает объект на экране."""
         pass
 
 
@@ -84,12 +78,6 @@ class Snake(GameObject):
     """Класс для змейки, управляемой игроком."""
 
     def __init__(self, body_color=SNAKE_COLOR):
-        """
-        Инициализирует змейку.
-
-        Args:
-            body_color: Цвет змейки
-        """
         super().__init__(body_color)
         self.reset()
 
@@ -140,7 +128,6 @@ class Snake(GameObject):
             last_rect = pygame.Rect(self.last, (GRID_SIZE, GRID_SIZE))
             pygame.draw.rect(screen, BOARD_BACKGROUND_COLOR, last_rect)
 
-
 def handle_keys(game_object):
     """Обрабатывает нажатия клавиш для изменения направления движения."""
     for event in pygame.event.get():
@@ -156,7 +143,6 @@ def handle_keys(game_object):
                 game_object.next_direction = LEFT
             elif event.key == pygame.K_RIGHT and game_object.direction != LEFT:
                 game_object.next_direction = RIGHT
-
 
 def main():
     """Основная функция игры, содержащая главный игровой цикл."""
@@ -184,7 +170,6 @@ def main():
         apple.draw()
 
         pygame.display.update()
-
 
 if __name__ == '__main__':
     main()
