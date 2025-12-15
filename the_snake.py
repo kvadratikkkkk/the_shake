@@ -1,6 +1,6 @@
 from random import randint
-
 import pygame
+
 
 SCREEN_WIDTH, SCREEN_HEIGHT = 640, 480
 GRID_SIZE = 20
@@ -157,8 +157,8 @@ def handle_keys(game_object):
                 game_object.next_direction = DOWN
             elif event.key == pygame.K_LEFT and game_object.direction != RIGHT:
                 game_object.next_direction = LEFT
-            elif event.key == pygame.K_RIGHT and game_object.direction != LEFT:
-                game_object.next_direction = RIGHT
+        elif event.key == pygame.K_RIGHT and game_object.direction != LEFT:
+            game_object.next_direction = RIGHT
 
 
 def main():
